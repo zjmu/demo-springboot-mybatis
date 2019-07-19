@@ -26,6 +26,6 @@ public class CharCounterTest {
      */
     @Test
     public void generateResultMapTest(){
-        counter.countFrequency(testFile);
+        counter.countChar(testFile);
     }
 }
