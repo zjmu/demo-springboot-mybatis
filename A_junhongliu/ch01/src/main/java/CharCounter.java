@@ -1,15 +1,19 @@
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 /**
  * 统计每种字符对应数量
  */
 public class CharCounter extends Counter{
+
+    private static Logger logger = Logger.getLogger(CharCounter.class);
+
     // 用于记录统计结果
     Map<Character,Integer> resultMap = new HashMap<Character, Integer>();
-    public void countFrequency(File file){
+    public void countChar(File file){
         generateResultMap(file);
         displayResult();
     }
@@ -53,7 +57,7 @@ public class CharCounter extends Counter{
         Iterator<Map.Entry<Character, Integer>> ite = resultMap.entrySet().iterator();
         while(ite.hasNext()) {
             Map.Entry<Character, Integer> maps = ite.next();
-            System.out.println("word: "+maps.getKey() + "\t" +"frequency: " + maps.getValue());
+            logger.info("word: "+maps.getKey() + "\t" +"frequency: " + maps.getValue());
         }
     }
 }

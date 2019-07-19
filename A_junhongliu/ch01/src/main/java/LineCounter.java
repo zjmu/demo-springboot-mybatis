@@ -1,13 +1,15 @@
-import com.sun.xml.internal.fastinfoset.util.StringArray;
-
+import org.apache.log4j.Logger;
 import java.io.*;
 import java.util.*;
 
 
+
 /**
  * 统计每一行的单词情况
+ *
  */
 public class LineCounter {
+    private static Logger logger = Logger.getLogger(LineCounter.class);
     // 用于记录统计结果
     private Set<String> resultSet = new HashSet<String>();
     // 用于记录行统计结果resultList
@@ -42,14 +44,13 @@ public class LineCounter {
         }
         // 去除空串
         resultSet.remove("");
-
     }
     public void displayResult(){
         for(Set set : resultList){
             Iterator ite = set.iterator();
             while(ite.hasNext()) {
                 String word = (String) ite.next();
-                System.out.println("word: "+word);
+                logger.info("word: "+word);
             }
         }
     }
