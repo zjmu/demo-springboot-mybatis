@@ -56,8 +56,8 @@ public class CharCounter extends Counter{
     public void displayResult(){
         Iterator<Map.Entry<Character, Integer>> ite = resultMap.entrySet().iterator();
         while(ite.hasNext()) {
-            Map.Entry<Character, Integer> maps = ite.next();
-            logger.info("word: "+maps.getKey() + "\t" +"frequency: " + maps.getValue());
+            Map.Entry<Character, Integer> map = ite.next();
+            logger.info(String.format("word: %s \t frequency: %s",map.getKey(),map.getValue()));
         }
     }
 }

@@ -38,7 +38,7 @@ public class WordsCounter {
         resultSet.remove("");
     }
     public void displayResult(){
-        logger.info("本文词汇量: "+resultSet.size());
+        logger.info(String.format("本文词汇量: %s",resultSet.size()));
     }
 
 }

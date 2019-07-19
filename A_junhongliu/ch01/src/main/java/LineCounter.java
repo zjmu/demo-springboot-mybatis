@@ -46,12 +46,15 @@ public class LineCounter {
         resultSet.remove("");
     }
     public void displayResult(){
+        int index = 1;
         for(Set set : resultList){
             Iterator ite = set.iterator();
+            logger.info(String.format("Sentence: %s",index));
             while(ite.hasNext()) {
                 String word = (String) ite.next();
-                logger.info("word: "+word);
+                logger.info(String.format("word: %s",word));
             }
+            index++;
         }
     }
 }

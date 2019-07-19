@@ -5,7 +5,7 @@ import java.util.*;
 public class WordsFrequencyCounter {
     private static Logger logger = Logger.getLogger(WordsFrequencyCounter.class);
     // 用于记录统计结果
-    Map<String,Integer> resultMap = new HashMap<String, Integer>();
+    Map<String,Integer> resultMap = new HashMap<>();
     // LinkedList用于排序
     List<Map.Entry<String, Integer>> resultLinkedList = null;
     public void countFrequency(File file){
@@ -16,7 +16,7 @@ public class WordsFrequencyCounter {
 
     public void sortTheMap(){
         // 创建LinkedList
-        this.resultLinkedList = new LinkedList<Map.Entry<String, Integer>>();
+        this.resultLinkedList = new LinkedList<>();
         resultLinkedList.addAll(resultMap.entrySet());
         // 利用Collections的sort方法对linkedList进行排序
         Collections.sort(resultLinkedList, new Comparator<Map.Entry<String, Integer>>() {
@@ -72,8 +72,8 @@ public class WordsFrequencyCounter {
     public void displayResult(){
         Iterator<Map.Entry<String, Integer>> ite = resultLinkedList.iterator();
         while(ite.hasNext()) {
-            Map.Entry<String, Integer> maps = ite.next();
-            logger.info("word: "+maps.getKey() + "\t\t" +"frequency: " + maps.getValue());
+            Map.Entry<String, Integer> map = ite.next();
+            logger.info(String.format("word: %s \t\t\t frequency: %s",map.getKey(),map.getValue()));
         }
     }
 }
