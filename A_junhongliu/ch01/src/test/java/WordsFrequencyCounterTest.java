@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -15,18 +17,40 @@ public class WordsFrequencyCounterTest {
 
     private Map<String,Integer> rightMap = new HashMap<String, Integer>();
 
-    private Map<String,Integer> resultMap =null;
+    private Map<String,Integer> resultMap = null;
 
-    private WordsFrequencyCounter counter;
+    private WordsFrequencyCounter counter = null;
+
+    private List<Map.Entry<String, Integer>> rightLinkedList = null;
+
+    private List<Map.Entry<String, Integer>> resultLinkedList = null;
 
     // 定义测试文件
     private File testFile = null;
 
     @Before
     public void init() {
+        rightLinkedList = new LinkedList<>();
         counter = new WordsFrequencyCounter();
         testFile = new File("src\\test\\resources\\testFile.txt");
-
+        // 方法执行
+        counter.generateResultMap(testFile);
+        counter.sortTheMap();
+        counter.displayResult();
+        // expected 结果编写
+        rightMap.put("student",3);
+        rightMap.put("HUAQIAO",2);
+        rightMap.put("graduated",2);
+        rightMap.put("UNIVERSITY",2);
+        rightMap.put("Michael",1);
+        rightMap.put("is",1);
+        rightMap.put("who",1);
+        rightMap.put("from",1);
+        rightMap.put("at",1);
+        rightLinkedList.addAll(rightMap.entrySet());
+        // 获取执行结果
+        resultMap = counter.resultMap;
+        resultLinkedList = counter.resultLinkedList;
     }
 
     /**
@@ -34,18 +58,7 @@ public class WordsFrequencyCounterTest {
      */
     @Test
     public void generateResultMapTest() {
-        counter.generateResultMap(testFile);
-        rightMap.put("Michael",1);
-        rightMap.put("is",1);
-        rightMap.put("student",3);
-        rightMap.put("who",1);
-        rightMap.put("graduated",2);
-        rightMap.put("from",1);
-        rightMap.put("HUAQIAO",2);
-        rightMap.put("UNIVERSITY",2);
-        rightMap.put("at",1);
         // 获取分析结果
-        resultMap = counter.resultMap;
         assertThat(rightMap, is(resultMap));
     }
 
@@ -54,7 +67,9 @@ public class WordsFrequencyCounterTest {
      */
     @Test
     public void sortTheMapTest(){
-
+//        counter.generateResultMap(testFile);
+//        counter.sortTheMap();
+//        assertThat(rightLinkedList,is(resultLinkedList));
     }
 
 
