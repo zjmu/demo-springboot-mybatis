@@ -22,7 +22,9 @@ public class LineCounterTest {
     }
 
     /**
-     * todo 创建expected用例
+     * 暂时只是输出数据
+     * todo 创建expected用例进行自动测试
+     *
      */
     @Test
     public void generateResultMapTest(){
