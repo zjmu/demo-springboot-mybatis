@@ -1,3 +1,4 @@
+import com.ucar.train.week1.jinmu.zhou.ch01.ValueComparator;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.junit.Test;
@@ -5,8 +6,6 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-
-import static org.junit.Assert.*;
 
 public class CommonsIoClassTest {
 

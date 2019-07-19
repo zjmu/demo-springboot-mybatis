@@ -1,7 +1,9 @@
+package com.ucar.train.week1.jinmu.zhou.ch01;
+
 import java.util.Comparator;
 import java.util.Map;
 
-class ValueComparator implements Comparator<String> {
+public class ValueComparator implements Comparator<String> {
     Map<String, Integer> base;
     public ValueComparator(Map<String, Integer> base) {
         this.base = base;
