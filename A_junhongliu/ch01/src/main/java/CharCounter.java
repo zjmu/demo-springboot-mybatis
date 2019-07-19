@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 统计每种字符
+ * 统计每种字符对应数量
  */
 public class CharCounter extends Counter{
     // 用于记录统计结果
