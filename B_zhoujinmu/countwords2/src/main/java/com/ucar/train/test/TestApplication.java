@@ -1,4 +1,4 @@
-package com.ucar.train.week2.jinmu.zhou.countwords2;
+package com.ucar.train.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
