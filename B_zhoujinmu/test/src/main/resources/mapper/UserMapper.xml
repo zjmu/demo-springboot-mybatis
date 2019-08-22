@@ -6,8 +6,6 @@
         <id column="id" property="id"/>
         <result property="name" column="psw"/>
         <result property="psw" column="psw"/>
-        <result property="createTime" column="create_time"/>
-        <result property="modifyTime" column="modify_time"/>
     </resultMap>
 
     <select id="getAllUser" resultMap="mapper">
