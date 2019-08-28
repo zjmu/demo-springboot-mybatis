@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ucar.train.jinmu.zhou.webmian.mapper.ParagraphMapper">
+
+    <resultMap id="mapper" type="com.ucar.train.jinmu.zhou.webmian.domain.Paragraph">
+        <id column="id" property="id"/>
+        <result column="paragraph_id" property="paragraphId"/>
+        <result column="description" property="description"/>
+        <result column="words_num" property="wordsNum"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <resultMap id="joinMapper" type="com.ucar.train.jinmu.zhou.webmian.domain.Paragraph">
+        <id column="id" property="id"/>
+        <result property="articleId" column="article_id"/>
+        <result column="paragraph_id" property="paragraphId"/>
+        <result column="description" property="description"/>
+        <result column="words_num" property="wordsNum"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <collection property="lines" column="paragraphId=paragraph_id" select="com.ucar.train.jinmu.zhou.webmian.mapper.LineMapper.getLines"/>
+    </resultMap>
+
+    <insert id="insertMore" parameterType="java.util.List">
+        INSERT INTO t_b_paragraph
+        (article_id,paragraph_id,description,words_num,create_time,modify_time)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.articleId},
+            #{item.paragraphId},
+            #{item.description},
+            #{item.wordsNum},
+            #{item.createTime},
+            #{item.modifyTime}
+            )
+        </foreach>
+    </insert>
+    <delete id="deleteAll">
+        DELETE  FROM t_b_paragraph
+    </delete>
+
+    <select id="getAll" resultMap="mapper">
+        SELECT * FROM t_b_paragraph
+    </select>
+
+
+    <select id="getById" resultMap="joinMapper">
+        SELECT * FROM t_b_paragraph WHERE paragraph_id=#{paragraphId}
+    </select>
+
+</mapper>
