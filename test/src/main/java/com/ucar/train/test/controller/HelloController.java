@@ -22,12 +22,12 @@ public class HelloController {
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
-    @RequestMapping("/hello")
+    @RequestMapping("/hello1")
     public String say(){
         return driverClassName;
     }
 
-    @RequestMapping("getAllUser")
+    @RequestMapping("getUser")
     public String getAllUser(){
         return GsonUtils.toJson(userService.getAllUser());
     }
