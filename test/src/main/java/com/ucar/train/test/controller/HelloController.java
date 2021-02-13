@@ -22,7 +22,7 @@ public class HelloController {
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
-    @RequestMapping("/hello1")
+    @RequestMapping("/hello")
     public String say(){
         return driverClassName;
     }
