@@ -27,7 +27,7 @@ public class HelloController {
         return driverClassName;
     }
 
-    @RequestMapping("getUser")
+    @RequestMapping("getUser11")
     public String getAllUser(){
         return GsonUtils.toJson(userService.getAllUser());
     }
